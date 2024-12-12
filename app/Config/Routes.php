@@ -18,3 +18,9 @@ $routes->post('file-upload/update/(:num)', 'FileUpload::update/$1'); // Update f
 
 // Delete route for a specific file
 $routes->get('file-upload/delete/(:num)', 'FileUpload::delete/$1'); // Delete a file
+$routes->group('api', function($routes)
+{
+    $routes->post('upload', 'ApiController::upload');
+    $routes->get('viewFiles', 'ApiController::viewFiles');
+    $routes->delete('delete/(:num)', 'ApiController::delete/$1');
+});

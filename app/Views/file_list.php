@@ -150,9 +150,15 @@
         <input type="text" id="file-name-filter" placeholder="Filter by file name" />
         <select id="file-type-filter">
             <option value="">Filter by file type</option>
-            <option value="application/pdf">PDF</option>
-            <option value="image/png">PNG</option>
-            <option value="image/jpeg">JPEG</option>
+			<option value="application/pdf">PDF</option>
+			<option value="image/png">PNG</option>
+			<option value="image/jpeg">JPEG</option>
+			<option value="application/vnd.openxmlformats-officedocument.word">DOCX (Word)</option>
+			<option value="application/vnd.openxmlformats-officedocument.spre">Excel</option>
+			<option value="application/vnd.openxmlformats-officedocument.pres">PowerPoint</option>
+			<option value="audio/mpeg">MP3 (Audio)</option>
+
+            
         </select>
         <input type="number" id="file-size-filter" placeholder="Max file size (KB)" />
         <button id="reset-filters">Reset Filters</button>

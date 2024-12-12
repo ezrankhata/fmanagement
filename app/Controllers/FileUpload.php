@@ -33,76 +33,101 @@ class FileUpload extends Controller
 
     // Method to upload a new file
     public function upload()
-    {
-        // Validation rules for file upload
-        $validationRule = [
-            'userfile' => [
-                'label' => 'File',
-                'rules' => 'uploaded[userfile]'
-                    . '|mime_in[userfile,image/png,image/jpeg,image/jpg,application/pdf]'
-                    . '|max_size[userfile,2048]', // Limit file size to 2MB
-            ],
+{
+    // Validation rules for file upload
+    $validationRule = [
+    'userfile' => [
+        'label' => 'File',
+        'rules' => 'uploaded[userfile]'
+            . '|mime_in[userfile,image/png,image/jpeg,image/jpg,application/pdf'
+            . ',application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+            . ',application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            . ',application/vnd.openxmlformats-officedocument.presentationml.presentation'
+            . ',audio/mpeg]' // Added support for DOCX, Excel, PowerPoint, and MP3
+            . '|max_size[userfile,5120]', // Limit file size to 5MB
+    ],
+];
+
+
+    // If validation fails, redirect back with errors
+    if (!$this->validate($validationRule)) {
+        return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+    }
+
+    // Get the uploaded file
+    $file = $this->request->getFile('userfile');
+
+    // Check if the file is valid and hasn't been moved yet
+    if ($file->isValid() && !$file->hasMoved()) {
+        // Generate a unique name for the file using the current timestamp and a random string
+        $uniqueName = time() . '_' . bin2hex(random_bytes(5)) . '.' . $file->getExtension();
+
+        // Use finfo to validate the file content
+        $finfo = finfo_open(FILEINFO_MIME_TYPE); // Open fileinfo
+        $fileMime = finfo_file($finfo, $file->getTempName()); // Get MIME type based on content
+
+        // Close the fileinfo resource
+        finfo_close($finfo);
+
+        // Validate that the file MIME type matches the expected one
+	if (strpos($fileMime, 'image') !== false) {
+		// It's an image, we can allow it
+		$directory = 'uploads/images';
+	} elseif (strpos($fileMime, 'pdf') !== false) {
+		// It's a PDF, we can allow it
+		$directory = 'uploads/documents';
+	} elseif (strpos($fileMime, 'vnd.openxmlformats-officedocument.wordprocessingml.document') !== false) {
+		// It's a DOCX (MS Word) file, we can allow it
+		$directory = 'uploads/documents';
+	} elseif (strpos($fileMime, 'vnd.openxmlformats-officedocument.spreadsheetml.sheet') !== false) {
+		// It's an Excel file, we can allow it
+		$directory = 'uploads/documents';
+	} elseif (strpos($fileMime, 'vnd.openxmlformats-officedocument.presentationml.presentation') !== false) {
+		// It's a PowerPoint file, we can allow it
+		$directory = 'uploads/documents';
+	} elseif (strpos($fileMime, 'audio/mpeg') !== false) {
+		// It's an MP3 (audio) file, we can allow it
+		$directory = 'uploads/audio';
+	} else {
+		// Invalid file type
+		return redirect()->back()->with('error', 'Invalid file type.');
+	}
+
+
+        // Ensure the directory exists, create it if not
+        if (!is_dir($directory)) {
+            mkdir($directory, 0755, true); // Create directory with appropriate permissions
+        }
+
+        // Move the file to the appropriate directory with the unique name
+        $file->move($directory, $uniqueName);
+
+        // Prepare file metadata to be saved in the database
+        $fileData = [
+            'file_name'     => $uniqueName,
+            'original_name' => $file->getClientName(),
+            'file_type'     => $file->getClientMimeType(),
+            'file_size'     => $file->getSize(),
+            'directory_id'  => null, // You can set the directory ID if applicable
         ];
 
-        // If validation fails, redirect back with errors
-        if (!$this->validate($validationRule)) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        // Load the FileUploadModel
+        $fileModel = new FileUploadModel();
+
+        // Insert the file metadata into the database
+        if ($fileModel->save($fileData)) {
+            return redirect()->back()
+                ->with('success', 'File uploaded and metadata stored successfully!')
+                ->with('uploadDirectory', $directory)
+                ->with('fileName', $uniqueName);
+        } else {
+            return redirect()->back()->with('error', 'Failed to store file metadata in the database.');
         }
-
-        // Get the uploaded file
-        $file = $this->request->getFile('userfile');
-
-        // Check if the file is valid and hasn't been moved yet
-        if ($file->isValid() && !$file->hasMoved()) {
-            // Generate a unique name for the file using the current timestamp and a random string
-            $uniqueName = time() . '_' . bin2hex(random_bytes(5)) . '.' . $file->getExtension();
-
-            // Determine the directory based on file type
-            $mimeType = $file->getMimeType();
-            if (strpos($mimeType, 'image') !== false) {
-                $directory = 'uploads/images';
-            } elseif (strpos($mimeType, 'pdf') !== false) {
-                $directory = 'uploads/documents';
-            } else {
-                $directory = 'uploads/others';
-            }
-
-            // Ensure the directory exists, create it if not
-            if (!is_dir($directory)) {
-                mkdir($directory, 0755, true); // Create directory with appropriate permissions
-            }
-
-            // Move the file to the appropriate directory with the unique name
-            $file->move($directory, $uniqueName);
-
-            // Prepare file metadata to be saved in the database
-            $fileData = [
-                'file_name'     => $uniqueName,
-                'original_name' => $file->getClientName(),
-                'file_type'     => $file->getClientMimeType(),
-                'file_size'     => $file->getSize(),
-                'directory_id'  => null, // You can set the directory ID if applicable
-            ];
-
-            // Load the FileUploadModel
-            $fileModel = new FileUploadModel();
-
-            // Insert the file metadata into the database
-            if ($fileModel->save($fileData)) {
-                // Pass success message and file details to the session
-                return redirect()->back()
-                    ->with('success', 'File uploaded and metadata stored successfully!')
-                    ->with('uploadDirectory', $directory)
-                    ->with('fileName', $uniqueName);
-            } else {
-                // If saving to the database fails
-                return redirect()->back()->with('error', 'Failed to store file metadata in the database.');
-            }
-        }
-
-        // If the file failed to upload, return an error message
-        return redirect()->back()->with('error', 'Failed to upload the file.');
     }
+
+    return redirect()->back()->with('error', 'Failed to upload the file.');
+}
+
 
     // Method to edit a file's metadata (Update)
     public function edit($id)
@@ -128,13 +153,18 @@ class FileUpload extends Controller
     {
         // Validation rules for file upload
         $validationRule = [
-            'userfile' => [
-                'label' => 'File',
-                'rules' => 'uploaded[userfile]'
-                    . '|mime_in[userfile,image/png,image/jpeg,image/jpg,application/pdf]'
-                    . '|max_size[userfile,2048]', // Limit file size to 2MB
-            ],
-        ];
+    'userfile' => [
+        'label' => 'File',
+        'rules' => 'uploaded[userfile]'
+            . '|mime_in[userfile,image/png,image/jpeg,image/jpg,application/pdf'
+            . ',application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+            . ',application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            . ',application/vnd.openxmlformats-officedocument.presentationml.presentation'
+            . ',audio/mpeg]' // Added support for DOCX, Excel, PowerPoint, and MP3
+            . '|max_size[userfile,5120]', // Limit file size to 5MB
+    ],
+];
+
 
         // If validation fails, redirect back with errors
         if (!$this->validate($validationRule)) {
@@ -163,15 +193,31 @@ class FileUpload extends Controller
             // Generate a new unique name for the file
             $uniqueName = time() . '_' . bin2hex(random_bytes(5)) . '.' . $file->getExtension();
 
-            // Determine the directory based on file type
             $mimeType = $file->getMimeType();
-            if (strpos($mimeType, 'image') !== false) {
-                $directory = 'uploads/images';
-            } elseif (strpos($mimeType, 'pdf') !== false) {
-                $directory = 'uploads/documents';
-            } else {
-                $directory = 'uploads/others';
-            }
+
+	if (strpos($mimeType, 'image') !== false) {
+		// It's an image, we can allow it
+		$directory = 'uploads/images';
+	} elseif (strpos($mimeType, 'pdf') !== false) {
+		// It's a PDF, we can allow it
+		$directory = 'uploads/documents';
+	} elseif (strpos($mimeType, 'wordprocessingml.document') !== false) {
+		// It's a DOCX (Word document), we can allow it
+		$directory = 'uploads/documents';
+	} elseif (strpos($mimeType, 'spreadsheetml.sheet') !== false) {
+		// It's an Excel file, we can allow it
+		$directory = 'uploads/documents';
+	} elseif (strpos($mimeType, 'presentationml.presentation') !== false) {
+		// It's a PowerPoint file, we can allow it
+		$directory = 'uploads/documents';
+	} elseif (strpos($mimeType, 'audio/mpeg') !== false) {
+		// It's an MP3 (audio) file, we can allow it
+		$directory = 'uploads/audio';
+	} else {
+		// Invalid file type
+		return redirect()->back()->with('error', 'Invalid file type.');
+}
+
 
             // Ensure the directory exists, create it if not
             if (!is_dir($directory)) {
