@@ -1,0 +1,51 @@
+CRITICAL - 2024-12-12 10:19:54 --> CodeIgniter\Images\Exceptions\ImageException: The framework needs the following extension(s) installed and loaded: "GD".
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 78.
+ 1 SYSTEMPATH\Images\Handlers\GDHandler.php(36): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('GD')
+ 2 SYSTEMPATH\Config\Services.php(351): CodeIgniter\Images\Handlers\GDHandler->__construct(Object(Config\Images))
+ 3 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::image('gd', Object(Config\Images), false)
+ 4 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('image', [...])
+ 5 SYSTEMPATH\Config\Services.php(342): CodeIgniter\Config\BaseService::getSharedInstance('image', null, null)
+ 6 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::image()
+ 7 APPPATH\Controllers\FileUpload.php(132): CodeIgniter\Config\BaseService::__callStatic('image', [])
+ 8 APPPATH\Controllers\FileUpload.php(83): App\Controllers\FileUpload->generateThumbnail(Object(CodeIgniter\HTTP\Files\UploadedFile), 'uploads/images', '1733998794_4622a26fd0.png')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-12 10:20:15 --> CodeIgniter\Images\Exceptions\ImageException: The framework needs the following extension(s) installed and loaded: "GD".
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 78.
+ 1 SYSTEMPATH\Images\Handlers\GDHandler.php(36): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('GD')
+ 2 SYSTEMPATH\Config\Services.php(351): CodeIgniter\Images\Handlers\GDHandler->__construct(Object(Config\Images))
+ 3 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::image('gd', Object(Config\Images), false)
+ 4 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('image', [...])
+ 5 SYSTEMPATH\Config\Services.php(342): CodeIgniter\Config\BaseService::getSharedInstance('image', null, null)
+ 6 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::image()
+ 7 APPPATH\Controllers\FileUpload.php(132): CodeIgniter\Config\BaseService::__callStatic('image', [])
+ 8 APPPATH\Controllers\FileUpload.php(83): App\Controllers\FileUpload->generateThumbnail(Object(CodeIgniter\HTTP\Files\UploadedFile), 'uploads/images', '1733998815_cca2ce5d60.png')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-12 10:28:51 --> CodeIgniter\Images\Exceptions\ImageException: The framework needs the following extension(s) installed and loaded: "GD".
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 78.
+ 1 SYSTEMPATH\Images\Handlers\GDHandler.php(36): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('GD')
+ 2 SYSTEMPATH\Config\Services.php(351): CodeIgniter\Images\Handlers\GDHandler->__construct(Object(Config\Images))
+ 3 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::image('gd', Object(Config\Images), false)
+ 4 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('image', [...])
+ 5 SYSTEMPATH\Config\Services.php(342): CodeIgniter\Config\BaseService::getSharedInstance('image', null, null)
+ 6 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::image()
+ 7 APPPATH\Controllers\FileUpload.php(126): CodeIgniter\Config\BaseService::__callStatic('image', [])
+ 8 APPPATH\Controllers\FileUpload.php(66): App\Controllers\FileUpload->generateThumbnail(Object(CodeIgniter\HTTP\Files\UploadedFile), 'uploads/images', '1733999331_5cef5ebd80.png')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

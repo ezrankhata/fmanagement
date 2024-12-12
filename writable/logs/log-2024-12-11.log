@@ -1,0 +1,349 @@
+CRITICAL - 2024-12-11 21:05:09 --> ErrorException: Cannot redeclare App\Controllers\FileUpload::upload()
+[Method: GET, Route: file-upload]
+in APPPATH\Controllers\FileUpload.php on line 44.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-12-11 21:05:20 --> ErrorException: Cannot redeclare App\Controllers\FileUpload::upload()
+[Method: GET, Route: file-upload]
+in APPPATH\Controllers\FileUpload.php on line 44.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-12-11 21:05:28 --> ErrorException: Cannot redeclare App\Controllers\FileUpload::upload()
+[Method: GET, Route: file-upload]
+in APPPATH\Controllers\FileUpload.php on line 44.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-12-11 21:24:43 --> ErrorException: finfo_file(C:\xampp\tmp\php2C9B.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\php2C9B.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\php2C9B.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(62): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 21:25:00 --> ErrorException: finfo_file(C:\xampp\tmp\php70C9.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\php70C9.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\php70C9.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(62): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 21:27:33 --> ErrorException: finfo_file(C:\xampp\tmp\phpC79B.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\phpC79B.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\phpC79B.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(61): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 21:30:07 --> ErrorException: finfo_file(C:\xampp\tmp\php1F29.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\php1F29.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\php1F29.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(63): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 21:34:50 --> ErrorException: finfo_file(C:\xampp\tmp\php7045.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\php7045.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\php7045.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(63): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 21:38:38 --> ErrorException: finfo_file(C:\xampp\tmp\phpEE23.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\phpEE23.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\phpEE23.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(63): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 21:41:01 --> ErrorException: finfo_file(C:\xampp\tmp\php1A3B.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\php1A3B.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\php1A3B.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(62): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 21:41:51 --> ErrorException: finfo_file(C:\xampp\tmp\phpDFCE.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\phpDFCE.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\phpDFCE.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(62): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 21:47:39 --> ErrorException: finfo_file(C:\xampp\tmp\php2D8A.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\php2D8A.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\php2D8A.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(62): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 21:54:30 --> ErrorException: finfo_file(C:\xampp\tmp\php71AD.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\php71AD.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\php71AD.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(62): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 21:57:51 --> ErrorException: finfo_file(C:\xampp\tmp\php82C6.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\php82C6.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\php82C6.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(62): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 22:03:29 --> ErrorException: finfo_file(C:\xampp\tmp\phpAAE8.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\phpAAE8.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\phpAAE8.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(62): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 22:03:33 --> ErrorException: finfo_file(C:\xampp\tmp\phpBAB8.tmp): Failed to open stream: No such file or directory
+[Method: POST, Route: file-upload]
+in SYSTEMPATH\Files\File.php on line 115.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'finfo_file(C:\\xampp\\tmp\\phpBAB8.tmp): Failed to open stream: No such file or directory', 'C:\\xampp\\htdocs\\fms\\system\\Files\\File.php', 115)
+ 2 SYSTEMPATH\Files\File.php(115): finfo_file(Object(finfo), 'C:\\xampp\\tmp\\phpBAB8.tmp')
+ 3 APPPATH\Controllers\FileUpload.php(62): CodeIgniter\Files\File->getMimeType()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->upload()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-12-11 22:10:58 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'file_management_system1' in C:\xampp\htdocs\fms\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\fms\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'file_management...', 3306, '', 0)
+#1 C:\xampp\htdocs\fms\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\fms\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\fms\app\Controllers\TestController.php(17): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#4 C:\xampp\htdocs\fms\system\CodeIgniter.php(933): App\Controllers\TestController->index()
+#5 C:\xampp\htdocs\fms\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestController))
+#6 C:\xampp\htdocs\fms\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\fms\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\fms\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\fms\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'file_management_system1' in C:\xampp\htdocs\fms\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\fms\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\fms\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\fms\app\Controllers\TestController.php(17): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+#3 C:\xampp\htdocs\fms\system\CodeIgniter.php(933): App\Controllers\TestController->index()
+#4 C:\xampp\htdocs\fms\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestController))
+#5 C:\xampp\htdocs\fms\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\fms\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\fms\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#8 C:\xampp\htdocs\fms\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#9 {main}
+CRITICAL - 2024-12-11 22:10:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'file_management_system1'
+[Method: GET, Route: test]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Controllers\TestController.php(17): CodeIgniter\Database\BaseConnection->query('SELECT 1')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TestController->index()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TestController))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 22:37:21 --> ErrorException: Cannot redeclare App\Controllers\FileUpload::edit()
+[Method: GET, Route: file-upload]
+in APPPATH\Controllers\FileUpload.php on line 219.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-12-11 22:45:17 --> ErrorException: Undefined array key "description"
+[Method: GET, Route: file-upload/edit/1]
+in APPPATH\Views\edit_file.php on line 35.
+ 1 APPPATH\Views\edit_file.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "description"', 'C:\\xampp\\htdocs\\fms\\app\\Views\\edit_file.php', 35)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\fms\\app\\Views\\edit_file.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('edit_file', [], true)
+ 5 APPPATH\Controllers\FileUpload.php(117): view('edit_file', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 22:45:21 --> ErrorException: Undefined array key "description"
+[Method: GET, Route: file-upload/edit/1]
+in APPPATH\Views\edit_file.php on line 35.
+ 1 APPPATH\Views\edit_file.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "description"', 'C:\\xampp\\htdocs\\fms\\app\\Views\\edit_file.php', 35)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\fms\\app\\Views\\edit_file.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('edit_file', [], true)
+ 5 APPPATH\Controllers\FileUpload.php(117): view('edit_file', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 22:45:46 --> ErrorException: Undefined array key "description"
+[Method: GET, Route: file-upload/edit/1]
+in APPPATH\Views\edit_file.php on line 35.
+ 1 APPPATH\Views\edit_file.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "description"', 'C:\\xampp\\htdocs\\fms\\app\\Views\\edit_file.php', 35)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\fms\\app\\Views\\edit_file.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('edit_file', [], true)
+ 5 APPPATH\Controllers\FileUpload.php(117): view('edit_file', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 22:47:52 --> ErrorException: unlink(uploads/1733955401_2532e9907c.png): No such file or directory
+[Method: POST, Route: file-upload/update/1]
+in APPPATH\Controllers\FileUpload.php on line 156.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(uploads/1733955401_2532e9907c.png): No such file or directory', 'C:\\xampp\\htdocs\\fms\\app\\Controllers\\FileUpload.php', 156)
+ 2 APPPATH\Controllers\FileUpload.php(156): unlink('uploads/1733955401_2532e9907c.png')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->update('1')
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 22:50:53 --> ErrorException: unlink(uploads/1733955916_db3d8e8c06.png): No such file or directory
+[Method: POST, Route: file-upload/update/2]
+in APPPATH\Controllers\FileUpload.php on line 156.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(uploads/1733955916_db3d8e8c06.png): No such file or directory', 'C:\\xampp\\htdocs\\fms\\app\\Controllers\\FileUpload.php', 156)
+ 2 APPPATH\Controllers\FileUpload.php(156): unlink('uploads/1733955916_db3d8e8c06.png')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->update('2')
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 22:57:00 --> ErrorException: unlink(uploads/1733955401_2532e9907c.png): No such file or directory
+[Method: POST, Route: file-upload/update/1]
+in APPPATH\Controllers\FileUpload.php on line 155.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(uploads/1733955401_2532e9907c.png): No such file or directory', 'C:\\xampp\\htdocs\\fms\\app\\Controllers\\FileUpload.php', 155)
+ 2 APPPATH\Controllers\FileUpload.php(155): unlink('uploads/1733955401_2532e9907c.png')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->update('1')
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 22:57:34 --> ErrorException: unlink(uploads/1733955916_db3d8e8c06.png): No such file or directory
+[Method: POST, Route: file-upload/update/2]
+in APPPATH\Controllers\FileUpload.php on line 155.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(uploads/1733955916_db3d8e8c06.png): No such file or directory', 'C:\\xampp\\htdocs\\fms\\app\\Controllers\\FileUpload.php', 155)
+ 2 APPPATH\Controllers\FileUpload.php(155): unlink('uploads/1733955916_db3d8e8c06.png')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->update('2')
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 23:01:32 --> ErrorException: unlink(uploads/1733955401_2532e9907c.png): No such file or directory
+[Method: POST, Route: file-upload/update/1]
+in APPPATH\Controllers\FileUpload.php on line 156.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(uploads/1733955401_2532e9907c.png): No such file or directory', 'C:\\xampp\\htdocs\\fms\\app\\Controllers\\FileUpload.php', 156)
+ 2 APPPATH\Controllers\FileUpload.php(156): unlink('uploads/1733955401_2532e9907c.png')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->update('1')
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 23:22:59 --> ErrorException: Undefined variable $file_type
+[Method: GET, Route: file-upload/view-files]
+in APPPATH\Views\file_list.php on line 115.
+ 1 APPPATH\Views\file_list.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $file_type', 'C:\\xampp\\htdocs\\fms\\app\\Views\\file_list.php', 115)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\fms\\app\\Views\\file_list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_list', [], true)
+ 5 APPPATH\Controllers\FileUpload.php(30): view('file_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->viewFiles()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 23:24:31 --> ErrorException: Undefined variable $file_type
+[Method: GET, Route: file-upload/view-files]
+in APPPATH\Views\file_list.php on line 115.
+ 1 APPPATH\Views\file_list.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $file_type', 'C:\\xampp\\htdocs\\fms\\app\\Views\\file_list.php', 115)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\fms\\app\\Views\\file_list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_list', [], true)
+ 5 APPPATH\Controllers\FileUpload.php(35): view('file_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->viewFiles()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-11 23:24:33 --> ErrorException: Undefined variable $file_type
+[Method: GET, Route: file-upload/view-files]
+in APPPATH\Views\file_list.php on line 115.
+ 1 APPPATH\Views\file_list.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $file_type', 'C:\\xampp\\htdocs\\fms\\app\\Views\\file_list.php', 115)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\fms\\app\\Views\\file_list.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('file_list', [], true)
+ 5 APPPATH\Controllers\FileUpload.php(35): view('file_list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\FileUpload->viewFiles()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\FileUpload))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
