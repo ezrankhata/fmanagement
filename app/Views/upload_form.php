@@ -6,47 +6,58 @@
     <title>File Upload</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
             margin: 0;
             padding: 0;
+            transition: background-color 0.5s ease;
         }
         h1 {
             text-align: center;
-            color: #333;
+            color: #343a40;
             margin-top: 20px;
+            font-size: 2.5em;
+            transition: color 0.3s ease;
         }
         .container {
             width: 80%;
             margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        .flash-message, .error-message, .file-info {
             border-radius: 8px;
+            transition: background-color 0.3s ease;
         }
         .flash-message {
-            background-color: #4CAF50;
+            background-color: #28a745;
             color: white;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
             text-align: center;
+            animation: fadeIn 0.5s;
         }
         .error-message {
-            background-color: #f44336;
+            background-color: #dc3545;
             color: white;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
             text-align: center;
+            animation: fadeIn 0.5s;
         }
         .file-info {
-            background-color: #2196F3;
+            background-color: #007bff;
             color: white;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
             text-align: center;
+            animation: fadeIn 0.5s;
         }
         form {
             display: flex;
@@ -55,34 +66,46 @@
             margin-top: 20px;
         }
         input[type="file"] {
-            padding: 10px;
-            border: 2px solid #4CAF50;
-            border-radius: 4px;
+            padding: 12px;
+            border: 2px solid #28a745;
+            border-radius: 6px;
             margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="file"]:hover {
+            border-color: #218838;
         }
         button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
+            padding: 12px 24px;
+            background-color: #28a745;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #218838;
+            transform: translateY(-2px);
         }
         .nav-button {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #2196F3;
+            padding: 12px 24px;
+            background-color: #007bff;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
             margin-top: 20px;
             text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .nav-button:hover {
-            background-color: #1976D2;
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>

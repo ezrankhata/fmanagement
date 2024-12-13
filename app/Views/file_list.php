@@ -14,34 +14,47 @@
             padding: 0;
         }
         h1 {
-            text-align: center;
-            color: #333;
-            margin-top: 20px;
-        }
-        .filter-container {
-            width: 80%;
-            margin: 20px auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .filter-container input, .filter-container select {
-            padding: 8px 12px;
-            font-size: 14px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .filter-container button {
-            padding: 8px 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .filter-container button:hover {
-            opacity: 0.8;
-        }
+        text-align: center;
+        color: #333;
+        margin-top: 20px;
+        font-size: 2.5em;
+        transition: color 0.3s ease;
+    }
+    .filter-container {
+        width: 80%;
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+    .filter-container:hover {
+        transform: scale(1.02);
+    }
+    .filter-container input, .filter-container select {
+        padding: 10px;
+        font-size: 14px;
+        border: 2px solid #28a745;
+        border-radius: 6px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .filter-container input:hover, .filter-container select:hover {
+        border-color: #218838;
+        box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+    }
+    .filter-container button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .filter-container button:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+    }
         table {
             width: 80%;
             margin: 20px auto;
@@ -94,17 +107,19 @@
             margin: 0 5px;
         }
         .select-all-btn, .delete-selected-btn {
-            padding: 8px 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin: 10px;
-        }
-        .select-all-btn:hover, .delete-selected-btn:hover {
-            opacity: 0.8;
-        }
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 10px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .select-all-btn:hover, .delete-selected-btn:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+    }
         .actions-container {
             display: flex;
             justify-content: flex-start;
