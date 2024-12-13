@@ -105,6 +105,7 @@
             <p><strong>File Size:</strong> <?= esc($file['file_size']) ?> bytes</p>
         </div>
 
+        <!-- File update form -->
         <form action="<?= base_url('file-upload/update/' . $file['id']) ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field() ?>
 

@@ -148,162 +148,180 @@ class FileUpload extends Controller
         return view('edit_file', ['file' => $file]);
     }
 
-    // Method to update file metadata
     public function update($id)
-    {
-        // Validation rules for file upload
-        $validationRule = [
-    'userfile' => [
-        'label' => 'File',
-        'rules' => 'uploaded[userfile]'
-            . '|mime_in[userfile,image/png,image/jpeg,image/jpg,application/pdf'
-            . ',application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-            . ',application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-            . ',application/vnd.openxmlformats-officedocument.presentationml.presentation'
-            . ',audio/mpeg]' // Added support for DOCX, Excel, PowerPoint, and MP3
-            . '|max_size[userfile,5120]', // Limit file size to 5MB
-    ],
-];
+{
+    // Validation rules for file upload
+    $validationRule = [
+        'userfile' => [
+            'label' => 'File',
+            'rules' => 'uploaded[userfile]|mime_in[userfile,image/png,image/jpeg,image/jpg,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.presentationml.presentation,audio/mpeg]|max_size[userfile,5120]', // Allow only specific file types
+        ],
+    ];
 
+    // Validate the uploaded file
+    if (!$this->validate($validationRule)) {
+        return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+    }
 
-        // If validation fails, redirect back with errors
-        if (!$this->validate($validationRule)) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+    // Get the uploaded file
+    $file = $this->request->getFile('userfile');
+
+    // Load the FileUploadModel
+    $fileModel = new FileUploadModel();
+
+    // Get the file's current data by its ID
+    $fileData = $fileModel->find($id);
+
+    // Check if the file exists
+    if (!$fileData) {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException('File not found.');
+    }
+
+    // If a new file is uploaded
+    if ($file->isValid() && !$file->hasMoved()) {
+        // Delete the old file if a new one is uploaded
+        $oldFilePath = 'uploads/' . $fileData['file_name'];
+        if (file_exists($oldFilePath)) {
+            unlink($oldFilePath); // Delete the old file
         }
 
-        // Get the uploaded file
-        $file = $this->request->getFile('userfile');
+        // Generate a new unique name for the file
+        $uniqueName = time() . '_' . bin2hex(random_bytes(5)) . '.' . $file->getExtension();
 
-        // Load the FileUploadModel
-        $fileModel = new FileUploadModel();
+        // Determine the appropriate directory for the file type
+        $mimeType = $file->getMimeType();
+        $directory = $this->getDirectoryByMimeType($mimeType);
 
-        // Get the file's current data by its ID
-        $fileData = $fileModel->find($id);
-
-        // Check if the file exists
-        if (!$fileData) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('File not found.');
+        // Ensure the directory exists
+        if (!is_dir($directory)) {
+            mkdir($directory, 0755, true);
         }
 
-        // If a new file is uploaded
-        if ($file->isValid() && !$file->hasMoved()) {
-            // Delete the old file if a new one is uploaded
-            unlink('uploads/' . $fileData['file_name']); // Delete the old file
+        // Move the file to the appropriate directory with the unique name
+        $file->move($directory, $uniqueName);
 
-            // Generate a new unique name for the file
-            $uniqueName = time() . '_' . bin2hex(random_bytes(5)) . '.' . $file->getExtension();
+        // Update file metadata in the database
+        $updatedData = [
+            'file_name'     => $uniqueName,
+            'original_name' => $file->getClientName(),
+            'file_type'     => $file->getClientMimeType(),
+            'file_size'     => $file->getSize(),
+        ];
 
-            $mimeType = $file->getMimeType();
+        // Update the file data in the database
+        $fileModel->update($id, $updatedData);
 
-	if (strpos($mimeType, 'image') !== false) {
-		// It's an image, we can allow it
-		$directory = 'uploads/images';
-	} elseif (strpos($mimeType, 'pdf') !== false) {
-		// It's a PDF, we can allow it
-		$directory = 'uploads/documents';
-	} elseif (strpos($mimeType, 'wordprocessingml.document') !== false) {
-		// It's a DOCX (Word document), we can allow it
-		$directory = 'uploads/documents';
-	} elseif (strpos($mimeType, 'spreadsheetml.sheet') !== false) {
-		// It's an Excel file, we can allow it
-		$directory = 'uploads/documents';
-	} elseif (strpos($mimeType, 'presentationml.presentation') !== false) {
-		// It's a PowerPoint file, we can allow it
-		$directory = 'uploads/documents';
-	} elseif (strpos($mimeType, 'audio/mpeg') !== false) {
-		// It's an MP3 (audio) file, we can allow it
-		$directory = 'uploads/audio';
-	} else {
-		// Invalid file type
-		return redirect()->back()->with('error', 'Invalid file type.');
+        return redirect()->to('/file-upload/view-files')->with('success', 'File updated successfully!');
+    }
+
+    // If no new file is uploaded, just return an error message
+    return redirect()->back()->with('error', 'Failed to update file, no new file uploaded.');
 }
 
-
-            // Ensure the directory exists, create it if not
-            if (!is_dir($directory)) {
-                mkdir($directory, 0755, true);
-            }
-
-            // Move the file to the appropriate directory with the unique name
-            $file->move($directory, $uniqueName);
-
-            // Update file metadata in the database
-            $updatedData = [
-                'file_name'     => $uniqueName,
-                'original_name' => $file->getClientName(),
-                'file_type'     => $file->getClientMimeType(),
-                'file_size'     => $file->getSize(),
-            ];
-
-            // Update the file data in the database
-            $fileModel->update($id, $updatedData);
-
-            return redirect()->to('/file-upload/view-files')->with('success', 'File updated successfully!');
-        }
-
-        // If no new file is uploaded, just return an error message
-        return redirect()->back()->with('error', 'Failed to update file, no new file uploaded.');
+// Helper method to determine the appropriate directory based on the MIME type
+private function getDirectoryByMimeType($mimeType)
+{
+    if (strpos($mimeType, 'image') !== false) {
+        return 'uploads/images';
+    } elseif (strpos($mimeType, 'pdf') !== false) {
+        return 'uploads/documents';
+    } elseif (strpos($mimeType, 'wordprocessingml.document') !== false) {
+        return 'uploads/documents';
+    } elseif (strpos($mimeType, 'spreadsheetml.sheet') !== false) {
+        return 'uploads/documents';
+    } elseif (strpos($mimeType, 'presentationml.presentation') !== false) {
+        return 'uploads/documents';
+    } elseif (strpos($mimeType, 'audio/mpeg') !== false) {
+        return 'uploads/audio';
+    } else {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException('Invalid file type.');
     }
+}
 
     // Method to delete a file
-    public function delete($id)
-    {
-        // Load the FileUploadModel
-        $fileModel = new FileUploadModel();
+   // Method to delete a file
+	public function delete($id)
+	{
+		// Load the FileUploadModel
+		$fileModel = new FileUploadModel();
 
-        // Get the file data by its ID
-        $fileData = $fileModel->find($id);
+		// Get the file data by its ID
+		$fileData = $fileModel->find($id);
 
-        // Check if the file exists in the database
-        if (!$fileData) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('File not found.');
-        }
+		// Check if the file exists in the database
+		if (!$fileData) {
+			// Return an error response if file not found
+			throw new \CodeIgniter\Exceptions\PageNotFoundException('File not found.');
+		}
 
-        // Path to the file
-        $filePath = 'uploads/' . $fileData['file_name'];
+		// Path to the file
+		$filePath = WRITEPATH . 'uploads/' . $fileData['file_name'];
 
-        // Delete the physical file from the server
-        if (file_exists($filePath)) {
-            unlink($filePath); // Delete the physical file
-        }
+		// Delete the physical file from the server
+		if (file_exists($filePath)) {
+			if (!unlink($filePath)) {
+				// Error handling in case of failure to delete the file
+				return redirect()->to('/file-upload/view-files')->with('error', 'Failed to delete the physical file.');
+			}
+		} else {
+			return redirect()->to('/file-upload/view-files')->with('error', 'File does not exist on the server.');
+		}
 
-        // Now delete the file entry from the database
-        $fileModel->delete($id);
+		// Now delete the file entry from the database
+		if ($fileModel->delete($id)) {
+			// Redirect to the file list with a success message
+			return redirect()->to('/file-upload/view-files')->with('success', 'File deleted successfully!');
+		} else {
+			// Handle errors in deleting the file entry from the database
+			return redirect()->to('/file-upload/view-files')->with('error', 'Failed to delete the file entry from the database.');
+		}
+	}
 
-        // Redirect to the file list with a success message
-        return redirect()->to('/file-upload/view-files')->with('success', 'File deleted successfully!');
-    }
 
     // Method to handle bulk deletion
-    public function bulkDelete()
-    {
-        $fileIds = $this->request->getPost('file_ids'); // Array of file IDs to delete
+    // Method to handle bulk deletion
+public function bulkDelete()
+{
+    $fileIds = $this->request->getPost('file_ids'); // Array of file IDs to delete
 
-        if (!empty($fileIds)) {
-            $fileModel = new FileUploadModel();
+    if (!empty($fileIds)) {
+        $fileModel = new FileUploadModel();
+        $deletedFiles = 0;
 
-            // Delete files from the database and server
-            foreach ($fileIds as $id) {
-                $fileData = $fileModel->find($id);
+        // Delete files from the database and server
+        foreach ($fileIds as $id) {
+            $fileData = $fileModel->find($id);
 
-                // Check if file exists before deletion
-                if ($fileData) {
-                    // Delete the physical file
-                    $filePath = 'uploads/' . $fileData['file_name'];
-                    if (file_exists($filePath)) {
-                        unlink($filePath);
+            // Check if file exists before deletion
+            if ($fileData) {
+                // Path to the file
+                $filePath = WRITEPATH . 'uploads/' . $fileData['file_name'];
+
+                // Delete the physical file
+                if (file_exists($filePath)) {
+                    if (unlink($filePath)) {
+                        // Only delete from the database if the file is successfully deleted
+                        $fileModel->delete($id);
+                        $deletedFiles++;
+                    } else {
+                        // Error handling for file deletion failure
+                        return redirect()->to('/file-upload/view-files')->with('error', 'Failed to delete one or more files.');
                     }
-
-                    // Delete the file entry from the database
-                    $fileModel->delete($id);
                 }
             }
-
-            return redirect()->to('/file-upload/view-files')->with('success', 'Selected files deleted successfully!');
         }
 
-        return redirect()->to('/file-upload/view-files')->with('error', 'No files selected for deletion.');
+        // If any files were deleted
+        if ($deletedFiles > 0) {
+            return redirect()->to('/file-upload/view-files')->with('success', "$deletedFiles files deleted successfully!");
+        } else {
+            return redirect()->to('/file-upload/view-files')->with('error', 'No files were deleted.');
+        }
     }
+
+    return redirect()->to('/file-upload/view-files')->with('error', 'No files selected for deletion.');
 }
 
-?>
+}
+
+?> 

@@ -15,12 +15,13 @@ $routes->get('file-upload/view-files', 'FileUpload::viewFiles'); // View uploade
 // Edit and update routes for specific files
 $routes->get('file-upload/edit/(:num)', 'FileUpload::edit/$1'); // Edit file metadata
 $routes->post('file-upload/update/(:num)', 'FileUpload::update/$1'); // Update file metadata
+$routes->delete('/file-upload/delete/(:segment)', 'FileUpload::delete/$1');
+$routes->post('/file-upload/bulk-delete', 'FileUpload::bulkDelete');
 
-// Delete route for a specific file
-$routes->get('file-upload/delete/(:num)', 'FileUpload::delete/$1'); // Delete a file
-$routes->group('api', function($routes)
-{
-    $routes->post('upload', 'ApiController::upload');
-    $routes->get('viewFiles', 'ApiController::viewFiles');
-    $routes->delete('delete/(:num)', 'ApiController::delete/$1');
+
+
+$routes->group('api', function($routes) {
+    $routes->post('upload', 'ApiController::upload');       // Upload file
+    $routes->get('files', 'ApiController::viewFiles');      // View all files
+    $routes->delete('files/(:num)', 'ApiController::delete/$1'); // Delete a file by ID
 });

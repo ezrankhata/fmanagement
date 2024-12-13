@@ -150,15 +150,13 @@
         <input type="text" id="file-name-filter" placeholder="Filter by file name" />
         <select id="file-type-filter">
             <option value="">Filter by file type</option>
-			<option value="application/pdf">PDF</option>
-			<option value="image/png">PNG</option>
-			<option value="image/jpeg">JPEG</option>
-			<option value="application/vnd.openxmlformats-officedocument.word">DOCX (Word)</option>
-			<option value="application/vnd.openxmlformats-officedocument.spre">Excel</option>
-			<option value="application/vnd.openxmlformats-officedocument.pres">PowerPoint</option>
-			<option value="audio/mpeg">MP3 (Audio)</option>
-
-            
+            <option value="application/pdf">PDF</option>
+            <option value="image/png">PNG</option>
+            <option value="image/jpeg">JPEG</option>
+            <option value="application/vnd.openxmlformats-officedocument.word">DOCX (Word)</option>
+            <option value="application/vnd.openxmlformats-officedocument.spre">Excel</option>
+            <option value="application/vnd.openxmlformats-officedocument.pres">PowerPoint</option>
+            <option value="audio/mpeg">MP3 (Audio)</option>
         </select>
         <input type="number" id="file-size-filter" placeholder="Max file size (KB)" />
         <button id="reset-filters">Reset Filters</button>
@@ -192,7 +190,7 @@
                     <td><?= number_format($file['file_size'] / 1024, 2); ?> KB</td> <!-- Display size in KB -->
                     <td class="actions-container">
                         <a href="<?= base_url('file-upload/edit/' . $file['id']); ?>" class="edit">Edit</a>
-                        <a href="/file-upload/delete/<?= $file['id']; ?>" class="delete" onclick="return confirm('Are you sure you want to delete this file?')">Delete</a>
+                        <a href="javascript:void(0);" class="delete" onclick="deleteFile(<?= $file['id']; ?>)">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -246,14 +244,31 @@
             checkboxes.forEach(checkbox => checkbox.checked = !allChecked);
         });
 
-        // Delete Selected button functionality
+        // Delete Selected files functionality
         document.getElementById('delete-selected').addEventListener('click', function() {
-            const selectedIds = [...document.querySelectorAll('.file-checkbox:checked')].map(checkbox => checkbox.value);
-            if (selectedIds.length > 0 && confirm('Are you sure you want to delete selected files?')) {
-                // Send selected file IDs to the server for deletion
-                // (You should implement the backend logic for batch deletion)
+            const selectedIds = [...document.querySelectorAll('.file-checkbox:checked')]
+                .map(checkbox => checkbox.value);
+
+            if (selectedIds.length > 0) {
+                if (confirm('Are you sure you want to delete the selected files?')) {
+                    // Perform bulk deletion (submit request to the server)
+                    // (you may use AJAX or form submission depending on your backend implementation)
+                    alert(`Files with IDs: ${selectedIds.join(', ')} will be deleted.`);
+                    // You can now send these IDs to your server for deletion
+                }
+            } else {
+                alert('No files selected for deletion.');
             }
         });
+
+        // Individual delete file functionality
+        function deleteFile(id) {
+            if (confirm('Are you sure you want to delete this file?')) {
+                // Perform single file deletion (submit request to the server)
+                alert(`File with ID: ${id} will be deleted.`);
+                // You can send the ID to the server for deletion here
+            }
+        }
     </script>
 </body>
 </html>
